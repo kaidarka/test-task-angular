@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="inputTitle">
+<input type="text" [(ngModel)]="inputText">
+<button (click)="addCard(inputTitle, inputText)">вставить</button>
+<div class="card" *ngFor="let card of cardList; let i=index">
+  <h2>{{card.title}}</h2>
+  <p>{{card.text}}</p>
+  <button (click)="removeCard(i)">Удалить</button>
+</div>
+
