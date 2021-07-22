@@ -1,0 +1,29 @@
+.btn{
+  border: none;
+  background: #7c7cfd;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  margin-right: 20px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.change{
+  width: 50%;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+  overflow: hidden;
+}
+input, textarea{
+  margin: 20px 0;
+  font-size: 20px;
+}
+textarea{
+  min-height: 200px;
+}
+

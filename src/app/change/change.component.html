@@ -1,8 +1,18 @@
-<button>Назад</button>
-<h1>Запись</h1>
-<input placeholder="Title Записи">
-<textarea>Контент записи</textarea>
-<div>
-  <button>Удалить</button>
-  <button>Сохранить</button>
+<div class="change" *ngFor="let card of incomingArticleObject">
+  <button class="btn" (click)="goBack()" >Назад</button>
+  <h1>Запись {{card.title}}</h1>
+  <div class="form">
+    <input [(ngModel)]="card.title" placeholder="Заголовок записи">
+    <textarea placeholder="Текст записи" [(ngModel)]="card.text">{{card.text}}</textarea>
+  </div>
+
+  <div>
+    <button class="btn" (click)="showRemove()">Удалить</button>
+    <button class="btn" (click)="saveChange()">Сохранить</button>
+  </div>
+  <div *ngIf="showBlock">
+    <h2>Удалить?</h2>
+    <button class="btn" (click)="removeCard()">Да</button>
+    <button class="btn" (click)="showRemove()">Нет</button>
+  </div>
 </div>

@@ -7,6 +7,7 @@ import { CardComponent } from './card/card.component';
 import {FormsModule} from "@angular/forms";
 import {ChangeComponent} from "./change/change.component";
 import {RouterModule} from "@angular/router";
+import {CardsService} from "./cards.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {RouterModule} from "@angular/router";
         FormsModule,
         RouterModule
     ],
-  providers: [],
+  providers: [CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

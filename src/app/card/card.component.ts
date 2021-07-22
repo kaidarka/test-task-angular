@@ -1,12 +1,6 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-
-export interface Cards {
-  title: string;
-  text: string;
-}
-
-
+import {Cards, CardsService} from "../cards.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -14,22 +8,25 @@ export interface Cards {
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  cardList: Cards[] = [
-  ]
-  inputTitle = "";
-  inputText = "";
-  addCard(inputTitle: string, inputText: string){
-    this.cardList.push({title: inputTitle, text: inputText});
+  private _cardsService;
+  public cards: Cards[] = [];
+
+  constructor(CardsService: CardsService, private router: Router) {
+    this._cardsService = CardsService;
+
   }
-  removeCard(i: number){
-    if (i > -1){
-      this.cardList.splice(i, 1);
-    }
-  }
-  constructor() { }
 
   ngOnInit(): void {
+    this.cards = this._cardsService.getAll();
 
+  }
+  addCard(){
+    this._cardsService.addCard();
+    this.router.navigate(['change']);
+  }
+  goToCard(article: any){
+    this._cardsService.setClickedCardObj(article);
+    this.router.navigate(['change']);
   }
 
 }
